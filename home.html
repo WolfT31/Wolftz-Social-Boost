@@ -1,0 +1,1004 @@
+<!-- FEEL FREE TO REUSE MY PROJECT ❤️ NO PROBLEM 😅 FULL FRONTEND...BUT DON'T BECOME COMPETITOR 💀 I WILL MAKE SURE TO HUNT YOUR PROJECTS TOO -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>premium-Viral</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #00f3ff;
+            --secondary: #ff00ff;
+            --accent: #ffff00;
+            --dark: #0a0a14;
+            --light: #ffffff;
+            --success: #00ff9d;
+            --premium: #ffd700;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
+            min-height: 100vh;
+            background: 
+                url('https://i.supaimg.com/94625561-ce6a-4f45-b40f-ea7ffa4b6386.jpg'),
+                linear-gradient(45deg, #0a0a14, #1a1a2e);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(5, 5, 15, 0.7);
+            z-index: -2;
+        }
+
+        .cyber-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 243, 255, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 243, 255, 0.1) 1px, transparent 1px);
+            background-size: 30px 30px;
+            z-index: -1;
+        }
+
+        .glitch {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                0deg,
+                transparent 49%,
+                rgba(255, 0, 255, 0.1) 50%,
+                transparent 51%
+            );
+            background-size: 100% 10px;
+            animation: glitchMove 20s infinite linear;
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        @keyframes glitchMove {
+            0% { background-position: 0 0; }
+            100% { background-position: 0 1000px; }
+        }
+
+        .container {
+            max-width: 100%;
+            padding: 15px;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 20px 0;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .logo {
+    font-size: 2.2rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+.logo span {
+    background: linear-gradient(45deg, #00f2ff, #9d4edd, #ff4fd8); /* Cyan → Purple → Pink */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: none;
+    transition: text-shadow 0.3s ease;
+    display: inline-block; /* Required for proper rendering */
+}
+
+.logo span:hover {
+    text-shadow: 
+        0 0 10px rgba(0, 242, 255, 0.5),
+        0 0 20px rgba(157, 78, 221, 0.3);
+}
+
+       .subtitle {
+    color: #00ff9d; /* or use var(--success) */
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+        .status {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 8px 15px;
+            border-radius: 20px;
+            border: 1px solid var(--primary);
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--success);
+            border-radius: 50%;
+            margin-right: 8px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+     /* Tabs with Traveling Line Effect */
+.tabs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.tab {
+    position: relative;
+    padding: 12px 20px;
+    border: 2px solid transparent;
+    color: white;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    flex: 1;
+    min-width: 120px;
+    max-width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    overflow: hidden;
+    /* ADD THIS: Base background for all tabs */
+    background: linear-gradient(135deg, rgba(56, 189, 248, 0.5), rgba(99, 102, 241, 0.5));
+    z-index: 1;
+}
+
+/* ACTIVE tab gets full gradient */
+.tab.active {
+    background: linear-gradient(135deg, #38bdf8, #6366f1);
+    box-shadow: 0 0 20px rgba(56, 189, 248, 0.6);
+}
+
+/* HOVER effect for all tabs */
+.tab:hover {
+    background: linear-gradient(135deg, #60a5fa, #818cf8);
+}
+
+/* Traveling Line Effect - only on active */
+.tab::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, 
+        transparent 40%, 
+        #38bdf8, 
+        #6366f1,
+        #38bdf8,
+        transparent 60%
+    );
+    background-size: 400% 400%;
+    border-radius: 10px;
+    z-index: -1;
+    animation: borderTravel 3s linear infinite;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+@keyframes borderTravel {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: 400% 400%;
+    }
+}
+
+/* Traveling line shows on active tab */
+.tab.active::before {
+    opacity: 1;
+}
+
+/* Traveling line shows on hover too */
+.tab:hover::before {
+    opacity: 0.7;
+}
+
+        /* Premium Badge */
+        .checkbox-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 5px 12px;
+            background: linear-gradient(45deg, var(--premium), #ff9900);
+            color: black;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-left: 10px;
+            animation: glow 2s infinite alternate;
+        }
+
+        .checkbox-badge i {
+            margin-right: 5px;
+        }
+
+        @keyframes glow {
+            from { box-shadow: 0 0 5px var(--premium); }
+            to { box-shadow: 0 0 15px var(--premium); }
+        }
+
+        /* Gift Icon Styling */
+        .gift-icon {
+            color: var(--secondary);
+            margin-left: 8px;
+            font-size: 1rem;
+            animation: bounce 1.5s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-3px); }
+        }
+
+        /* Service Cards - Glass Effect */
+        .service-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid rgba(0, 243, 255, 0.3);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+            background: rgba(20, 25, 40, 0.25);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.3),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.1),
+                inset 0 0 20px rgba(0, 243, 255, 0.1);
+        }
+
+        .service-card:hover {
+            background: rgba(25, 30, 50, 0.35);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-color: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: 
+                0 12px 40px rgba(0, 0, 0, 0.4),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.15),
+                inset 0 0 30px rgba(0, 243, 255, 0.2),
+                0 0 20px rgba(0, 243, 255, 0.3);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.1),
+                transparent
+            );
+            transition: left 0.5s;
+        }
+
+        .service-card:hover::before {
+            left: 100%;
+        }
+
+        .service-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .service-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--light);
+            display: flex;
+            align-items: center;
+        }
+
+        .service-badge {
+            padding: 4px 12px;
+            background: linear-gradient(45deg, var(--secondary), var(--primary));
+            color: black;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .service-desc {
+            color: #cccccc;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+            line-height: 1.4;
+            display: flex;
+            align-items: center;
+        }
+
+        .service-price {
+            font-size: 1.8rem;
+            color: #00ff9d;
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-shadow: 0 0 10px rgba(0, 255, 157, 0.3);
+        }
+
+        .service-features {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .service-features li {
+            padding: 5px 0;
+            color: #aaaaaa;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .service-features li::before {
+            content: '✓';
+            color: var(--success);
+            font-weight: bold;
+        }
+
+        .buy-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            border: none;
+            border-radius: 8px;
+            color: black;
+            font-weight: bold;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .buy-btn:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 20px rgba(0, 243, 255, 0.5);
+        }
+
+        .buy-btn:active {
+            transform: scale(0.98);
+        }
+
+        /* Disabled Button */
+        .disabled-btn {
+            background: linear-gradient(45deg, #666666, #999999) !important;
+            cursor: not-allowed !important;
+            opacity: 0.7 !important;
+        }
+
+        .disabled-btn:hover {
+            transform: none !important;
+            box-shadow: none !important;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 30px;
+            color: #666666;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Responsive */
+        @media (min-width: 768px) {
+            .container {
+                max-width: 800px;
+                margin: 0 auto;
+            }
+            
+            .service-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Particles */
+        .particles-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .cyber-particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .particle-1 {
+            background-color: #00f3ff;
+            box-shadow: 0 0 5px #00f3ff, 0 0 10px #00f3ff;
+        }
+
+        .particle-2 {
+            background-color: #ff00ff;
+            box-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff;
+        }
+
+        .particle-3 {
+            background-color: #ffff00;
+            box-shadow: 0 0 5px #ffff00, 0 0 10px #ffff00;
+        }
+
+        .particle-4 {
+            background-color: #00ff9d;
+            box-shadow: 0 0 5px #00ff9d, 0 0 10px #00ff9d;
+        }
+        /* Enhanced Cyberpunk Particles */
+.cyber-particle {
+    position: absolute;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.particle-dot {
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    box-shadow: 0 0 8px currentColor, 0 0 16px currentColor;
+}
+
+.particle-line {
+    width: 1px;
+    height: 20px;
+    border-radius: 2px;
+    box-shadow: 0 0 6px currentColor;
+}
+
+.particle-glyph {
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    color: transparent;
+    text-shadow: 0 0 6px currentColor;
+    font-size: 12px;
+    line-height: 1;
+}
+/* Floating WhatsApp Button */
+/* Floating WhatsApp Button - Icon Only with Edge Traveling Line */
+/* ✅ Floating WhatsApp Icon - Cyberpunk Traveling Border */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 25px;
+    right: 25px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    z-index: 9999;
+    /* Inner background: dark to match theme */
+    background: #0a0a14;
+    color: white;
+    overflow: hidden;
+    /* Optional: subtle inner glow */
+    box-shadow: inset 0 0 10px rgba(37, 211, 102, 0.2);
+}
+
+.whatsapp-float i {
+    font-size: 28px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Animated traveling border (like your tabs) */
+.whatsapp-float::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #25D366,
+        #128C7E,
+        #25D366,
+        transparent
+    );
+    background-size: 400% 400%;
+    border-radius: 50%;
+    z-index: 1;
+    animation: travelAround 3s linear infinite;
+    opacity: 0.9;
+}
+
+@keyframes travelAround {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 400% 50%;
+    }
+}
+
+/* Hover effect */
+.whatsapp-float:hover {
+    transform: scale(1.1);
+}
+.whatsapp-float:hover::before {
+    animation-duration: 1.2s;
+}
+
+/* Hover effect */
+.whatsapp-float:hover {
+    transform: scale(1.1);
+}
+.whatsapp-float:hover::before {
+    animation-duration: 1.2s;
+}
+
+/* Floating WhatsApp Icon - Icon Only */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 25px;
+    right: 25px;
+    background: linear-gradient(45deg, #25D366, #128C7E);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    z-index: 9999;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+    transition: all 0.3s ease;
+    animation: pulseWhatsApp 2s infinite;
+}
+
+.whatsapp-float i {
+    font-size: 28px;
+    margin: 0;
+}
+
+.whatsapp-float:hover {
+    background: linear-gradient(45deg, #1da851, #0d7d5f);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+    transform: scale(1.1);
+}
+
+@keyframes pulseWhatsApp {
+    0% { box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4); }
+    50% { box-shadow: 0 6px 24px rgba(37, 211, 102, 0.7); }
+    100% { box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4); }
+}
+
+/* Cyberpunk Marquee at Bottom */
+.cyber-marquee {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(10, 10, 20, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 8px 0;
+    overflow: hidden;
+    z-index: 900;
+    border-top: 1px solid rgba(0, 243, 255, 0.3);
+    box-shadow: 
+        0 0 15px rgba(0, 243, 255, 0.2),
+        inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.cyber-marquee span {
+    display: inline-block;
+    white-space: nowrap;
+    padding-left: 100%;
+    animation: scrollMarquee 20s linear infinite;
+    color: var(--primary); /* #00f3ff */
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    text-shadow: 0 0 8px var(--primary);
+}
+
+@keyframes scrollMarquee {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+/* Optional: Pause on hover */
+.cyber-marquee:hover span {
+    animation-play-state: paused;
+}
+    </style>
+</head>
+<body>
+<div class="cyber-marquee">
+    <span>⚡ UKIFANYA MALIPO • GUSA ICON YA WHATSAPP • NITUMIE USERNAME YAKO • ILI KUPATA HUDUMA YA HARAKA • 24/7 ONLINE SUPPORT ⚡</span>
+</div>
+<a href="https://api.whatsapp.com/send?phone=255747654905" 
+   target="_blank"
+   class="whatsapp-float"
+   aria-label="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+</a>
+    <div class="particles-container" id="particlesContainer"></div>
+    
+    <div class="cyber-grid"></div>
+    <div class="glitch"></div>
+
+    <div class="container">
+   
+        <header class="header">
+            <h1 class="logo"><span>CYBER-BOOST</span></h1>
+            <p class="subtitle">PREMIUM SOCIAL MEDIA SERVICES</p>
+            <div class="status">
+                <div class="status-dot"></div>
+                <span>SYSTEM ONLINE</span>
+            </div>
+        </header>
+
+       
+        <div class="tabs">
+            <button class="tab active" data-tab="tiktok">
+                <i class="fab fa-tiktok"></i> TikTok
+            </button>
+            <button class="tab" data-tab="instagram">
+                <i class="fab fa-instagram"></i> Instagram
+            </button>
+            <button class="tab" data-tab="other">
+                <i class="fab fa-twitter"></i> Other
+            </button>
+        </div>
+
+      
+        <div class="tab-content" id="tiktok-content">
+            <div class="service-grid"></div>
+        </div>
+
+        <div class="tab-content" id="instagram-content" style="display: none;">
+            <div class="service-grid"></div>
+        </div>
+
+        <div class="tab-content" id="other-content" style="display: none;">
+            <div class="service-grid"></div>
+        </div>
+
+     
+        <footer class="footer">
+            <p>© 2026 WolfTeam Services</p>
+        </footer>
+    </div>
+
+    <script>
+        // Service Data
+        const services = {
+            tiktok: [
+                {
+                    id: 'tiktok-500',
+                    title: '500+ VIEWS',
+                    description: 'Boost your TikTok with 500 authentic views',
+                    price: 500,
+                    badge: 'VIP',
+                    giftIcon: true,
+                    paymentLink: 'https://harakapay.net/pay/HPMLGQU5OM',
+                    features: ['Instant Delivery', 'High Retention', '24/7 Support']
+                },
+                {
+                    id: 'tiktok-1000',
+                    title: '1,000+ VIEWS',
+                    description: 'Get 1,000 real views to increase visibility',
+                    price: 1000,
+                    badge: 'VIP',
+                    giftIcon: true,
+                    paymentLink: 'https://harakapay.net/pay/HPMLGQXO5T',
+                    features: ['Fast Start', 'Real Engagement', 'Safe & Secure']
+                },
+                {
+                    id: 'tiktok-5000',
+                    title: '6,000+ VIEWS',
+                    description: 'Massive visibility with 5,000 TikTok views',
+                    price: 5000,
+                    badge: 'VIP',
+                    giftIcon: true,
+                    paymentLink: 'https://harakapay.net/pay/HPMLGQYKDO',
+                    features: ['High-Speed Delivery', 'Maximum Exposure', 'Priority Support']
+                },
+                {
+                    id: 'tiktok-10000',
+                    title: '12,000+ VIEWS',
+                    description: '10,000 views + 500 likes combo package 💎',
+                    price: 10000,
+                    badge: 'VVIP',
+                    premiumBadge: true,
+                    giftIcon: false,
+                    paymentLink: 'https://harakapay.net/pay/HPMLGQZGCV',
+                    features: ['Views + Likes Combo', 'Premium Quality', 'Top Priority']
+                }
+            ],
+            instagram: [
+                {
+                    id: 'instagram-1000-likes',
+                    title: '1,000 LIKES',
+                    description: 'Boost your posts with 1,000 Instagram likes',
+                    price: 5000,
+                    badge: 'SOON',
+                    giftIcon: true,
+                    features: ['Coming Soon', 'High Quality', 'Gradual Delivery']
+                },
+                {
+                    id: 'instagram-1000-followers',
+                    title: '1,000 FOLLOWERS',
+                    description: 'Grow with 1,000 real followers',
+                    price: 3000,
+                    badge: 'SOON',
+                    giftIcon: true,
+                    features: ['Coming Soon', 'Active Accounts', 'Natural Growth']
+                },
+                {
+                    id: 'instagram-10000-followers',
+                    title: '10,000 FOLLOWERS',
+                    description: 'Massive follower boost',
+                    price: 30000,
+                    badge: 'SOON',
+                    giftIcon: true,
+                    features: ['Coming Soon', 'Premium Accounts', 'Maximum Impact']
+                }
+            ],
+            other: [
+                {
+                    id: 'twitter-15000',
+                    title: '14,000+ VIEWS',
+                    description: 'Premium Twitter/X views package',
+                    price: 10000,
+                    badge: 'PREMIUM',
+                    giftIcon: true,
+                    paymentLink: 'https://harakapay.net/pay/HPMLGR1757',
+                    features: ['Twitter/X Compatible', 'High Retention', 'Fast Delivery']
+                }
+            ]
+        };
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            renderServices('tiktok');
+            renderServices('instagram');
+            renderServices('other');
+            setupEventListeners();
+            createCyberParticles();
+        });
+
+        // Render services
+        function renderServices(platform) {
+            const container = document.getElementById(`${platform}-content`);
+            if (!container) return;
+            
+            const serviceGrid = container.querySelector('.service-grid');
+            serviceGrid.innerHTML = '';
+            
+            services[platform].forEach(service => {
+                const card = createServiceCard(service, platform);
+                serviceGrid.appendChild(card);
+            });
+        }
+
+        // Create service card
+        function createServiceCard(service, platform) {
+            const card = document.createElement('div');
+            card.className = 'service-card';
+            card.dataset.id = service.id;
+            card.dataset.platform = platform;
+            
+            const titleHTML = `
+                ${service.title}
+                ${service.giftIcon ? '<i class="fas fa-gift gift-icon"></i>' : ''}
+            `;
+            
+            const premiumBadgeHTML = service.premiumBadge ? 
+                '<div class="checkbox-badge premium-badge"><i class="fas fa-crown"></i> +500 LIKES</div>' : '';
+            
+            const isInstagram = platform === 'instagram';
+            const buttonHTML = isInstagram ? 
+                `<button class="buy-btn disabled-btn" disabled>
+                    <i class="fas fa-clock"></i> COMING SOON
+                </button>` :
+                `<button class="buy-btn" data-link="${service.paymentLink}">
+                    <i class="fas fa-bolt"></i> BUY NOW
+                </button>`;
+            
+            card.innerHTML = `
+                <div class="service-header">
+                    <h3 class="service-title">
+                        ${titleHTML}
+                        ${premiumBadgeHTML}
+                    </h3>
+                    <span class="service-badge">${service.badge}</span>
+                </div>
+                <p class="service-desc">
+                    ${service.description}
+                    ${service.giftIcon ? '<i class="fas fa-gift gift-icon"></i>' : ''}
+                </p>
+                <div class="service-price">TZS ${service.price.toLocaleString()}</div>
+                <ul class="service-features">
+                    ${service.features.map(feat => `<li>${feat}</li>`).join('')}
+                </ul>
+                ${buttonHTML}
+            `;
+            
+            return card;
+        }
+
+        // Setup event listeners
+        function setupEventListeners() {
+            // Tab switching
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const tabId = this.dataset.tab;
+                    
+                    document.querySelectorAll('.tab').forEach(t => {
+                        t.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                    
+                    document.querySelectorAll('.tab-content').forEach(content => {
+                        content.style.display = 'none';
+                    });
+                    document.getElementById(`${tabId}-content`).style.display = 'block';
+                    
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                    }, 150);
+                });
+            });
+            
+            // Buy Now button clicks
+            document.addEventListener('click', function(e) {
+                const btn = e.target.closest('.buy-btn');
+                if (btn && !btn.classList.contains('disabled-btn')) {
+                    const paymentLink = btn.dataset.link;
+                    
+                    if (paymentLink) {
+                        window.open(paymentLink, '_blank');
+                    }
+                    
+                    btn.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        btn.style.transform = 'scale(1)';
+                    }, 150);
+                }
+            });
+        }
+
+        // Create particles
+        function createCyberParticles() {
+    const container = document.getElementById('particlesContainer');
+    if (!container) return;
+
+    container.innerHTML = '';
+    const colors = ['#00f3ff', '#ff00ff', '#00ff9d', '#ffff00'];
+    const types = ['dot', 'line', 'glyph'];
+    const glyphs = ['0', '1', '♧ ', '❄', '✰', '♧', '⚡', '§'];
+
+    for (let i = 0; i < 100; i++) {
+        const particle = document.createElement('div');
+        const type = types[Math.floor(Math.random() * types.length)];
+        const color = colors[Math.floor(Math.random() * colors.length)];
+
+        particle.classList.add('cyber-particle', `particle-${type}`);
+        particle.style.color = color;
+        particle.style.left = `${Math.random() * 100}%`;
+        particle.style.top = `${Math.random() * 100}%`;
+        particle.style.opacity = Math.random() * 0.6 + 0.2;
+
+        if (type === 'dot') {
+            particle.classList.add('particle-dot');
+        } else if (type === 'line') {
+            particle.classList.add('particle-line');
+            particle.style.height = `${Math.random() * 30 + 10}px`;
+        } else if (type === 'glyph') {
+            particle.classList.add('particle-glyph');
+            particle.textContent = glyphs[Math.floor(Math.random() * glyphs.length)];
+        }
+
+        // Animate movement
+        const duration = Math.random() * 20 + 10;
+        const delay = Math.random() * 5;
+        const xMove = (Math.random() - 0.5) * 100;
+        const yMove = (Math.random() - 0.5) * 100;
+
+        particle.style.animation = `floatParticle ${duration}s infinite ease-in-out ${delay}s`;
+        particle.style.setProperty('--x', `${xMove}px`);
+        particle.style.setProperty('--y', `${yMove}px`);
+
+        container.appendChild(particle);
+    }
+
+    // Inject animation keyframes once
+    if (!document.getElementById('particle-anim')) {
+        const style = document.createElement('style');
+        style.id = 'particle-anim';
+        style.textContent = `
+            @keyframes floatParticle {
+                0%, 100% { transform: translate(0, 0); }
+                25% { transform: translate(var(--x, 20px), var(--y, -20px)); }
+                50% { transform: translate(var(--x, -20px), var(--y, 20px)); }
+                75% { transform: translate(var(--x, 20px), var(--y, 20px)); }
+            }
+        `;
+        document.head.appendChild(style);
+    }
+}
+    </script>
+</body>
+</html>
